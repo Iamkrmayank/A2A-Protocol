@@ -1,0 +1,369 @@
+00:00:09,600 --> 00:00:11,180 [speaker_0]
+What are we trying to accomplish?
+
+00:00:11,220 --> 00:00:12,120 [speaker_1]
+Yeah.
+
+00:00:12,350 --> 00:00:12,360 [speaker_0]
+Hello?
+
+00:00:12,380 --> 00:00:14,480 [speaker_1]
+Yeah. Yeah. So-
+
+00:00:14,520 --> 00:00:15,380 [speaker_0]
+Are you following what I'm saying?
+
+00:00:15,400 --> 00:00:35,640 [speaker_1]
+Yeah. Yes, sir. So I was-- A-actually, what I'm asking, that, uh, what I figure out, the list of,
+uh, uh, like, uh, you shared me that, uh, documentation, right? Uh, OpenFAANG documentation. Yeah.
+
+00:00:35,650 --> 00:00:38,160 [speaker_0]
+Yeah, yeah. I, I call you to tell you that only.
+
+00:00:38,200 --> 00:00:38,490 [speaker_1]
+Okay.
+
+00:00:38,500 --> 00:00:41,850 [speaker_0]
+What endpoints we care about it. We don't care about their authentication, okay?
+
+00:00:41,900 --> 00:00:42,310 [speaker_1]
+Okay. Okay.
+
+00:00:42,980 --> 00:00:49,140 [speaker_0]
+We, we, we will build our own auth. Ok- I, I mean, anyway, our auth should work with, uh, our IDS,
+identity server.
+
+00:00:49,180 --> 00:00:49,610 [speaker_1]
+Okay.
+
+00:00:49,610 --> 00:00:59,400 [speaker_0]
+Okay? Broadly speaking, health endpoints, then, uh, then get, get API agent endpoints,
+post API agent endpoints, spawning a new agent with normal manifest.
+
+00:00:59,420 --> 00:00:59,680 [speaker_1]
+Mm-hmm.
+
+00:00:59,700 --> 00:01:05,360 [speaker_0]
+Then, um, uh, uh, sending a message tooo an agent.
+
+00:01:05,379 --> 00:01:05,740 [speaker_1]
+Mm-hmm.
+
+00:01:05,760 --> 00:01:11,060 [speaker_0]
+Then, um, uh, all of these are ADS spec agents, right? Okay?
+
+00:01:11,080 --> 00:01:11,660 [speaker_1]
+Okay.
+
+00:01:11,700 --> 00:01:19,370 [speaker_0]
+Then, um, uh, open a WebSocket for a real-time chat with that existing agent. Because our agents
+are always running state, nah? They are always in a running state.
+
+00:01:19,440 --> 00:01:21,860 [speaker_1]
+Yes, sir. Yes, sir. Yes, sir.
+
+00:01:21,920 --> 00:01:25,940 [speaker_0]
+So, so they are always in a running state. They are not stateless, they are stateful.
+
+00:01:26,070 --> 00:01:26,380 [speaker_1]
+Yeah.
+
+00:01:26,400 --> 00:01:30,780 [speaker_0]
+Okay. So opening a WebSocket session with that, uh, existing agent, agent ID.
+
+00:01:30,820 --> 00:01:31,150 [speaker_1]
+Mm-hmm.
+
+00:01:31,260 --> 00:01:39,280 [speaker_0]
+Uh, and we, we can... Uh, these guys are connecting to SQLite, but we cannot work with that.
+We will connect with Postgres.
+
+00:01:39,320 --> 00:01:44,460 [speaker_1]
+Yeah, so there is a issue with SQLite. Um, uh, like it's a file-based system, so it would be-
+
+00:01:44,540 --> 00:01:46,940 [speaker_0]
+Uh, file-based, you cannot containerize that easily-
+
+00:01:46,960 --> 00:01:47,210 [speaker_1]
+Yeah
+
+00:01:47,220 --> 00:01:48,340 [speaker_0]
+...with file-based.
+
+00:01:48,380 --> 00:01:48,800 [speaker_1]
+Yes, sir.
+
+00:01:48,860 --> 00:01:53,440 [speaker_0]
+So... Yeah. So we will work with Postgres.
+
+00:01:53,460 --> 00:01:53,840 [speaker_1]
+Mm-hmm.
+
+00:01:54,020 --> 00:02:02,380 [speaker_0]
+Um, then, uh, these API models we don't need. Already LiteLLM is there.
+We can access models from LiteLLM.
+
+00:02:02,460 --> 00:02:02,940 [speaker_1]
+Okay.
+
+00:02:03,060 --> 00:02:31,640 [speaker_0]
+Uh, actually, slash models, slash providers, all of these APIs are there in LiteLLM.
+We can use the models, list of models from list of, uh...
+
+00:02:31,680 --> 00:02:32,960 [speaker_1]
+Mm-hmm.
+
+00:02:32,980 --> 00:02:32,989 [speaker_0]
+Okay.
+
+00:02:33,000 --> 00:02:35,680 [speaker_1]
+Yeah.
+
+00:02:35,780 --> 00:02:39,420 [speaker_0]
+Already all the APIs are there-
+
+00:02:39,500 --> 00:02:39,660 [speaker_1]
+Yeah
+
+00:02:41,240 --> 00:02:42,340 [speaker_0]
+...for models.
+
+00:02:42,380 --> 00:02:42,660 [speaker_1]
+Yeah.
+
+00:02:42,700 --> 00:02:44,540 [speaker_0]
+Providers also we have LiteLLM.
+
+00:02:44,580 --> 00:02:44,970 [speaker_1]
+Mm-hmm.
+
+00:02:45,040 --> 00:02:55,660 [speaker_0]
+Skills also to, uh, um, skills also we can, uh, um, there is a way to add skills in LiteLLM also.
+
+00:02:55,700 --> 00:02:57,340 [speaker_1]
+Mm-hmm.
+
+00:02:57,560 --> 00:03:08,380 [speaker_0]
+[keyboard clacking] Yeah, anthropic skills API, V1/skills, um, list skills, get skill, delete skill.
+All these APIs are already there on LiteLLM.
+
+00:03:08,460 --> 00:03:10,440 [speaker_1]
+Okay.
+
+00:03:11,980 --> 00:03:12,340 [speaker_0]
+Right?
+
+00:03:12,350 --> 00:03:12,350 [speaker_1]
+Mm-hmm.
+
+00:03:12,360 --> 00:03:18,900 [speaker_0]
+And this API, you can still build it, but it can be just a wrapper calling LiteLLM APIs.
+
+00:03:18,960 --> 00:03:23,040 [speaker_1]
+Okay. So the, uh, like the skill thing, right?
+
+00:03:23,300 --> 00:03:27,070 [speaker_0]
+Mm-hmm. Skills, providers, models, these kind of things are just wrappers calling in, uh,
+LiteLLM APIs.
+
+00:03:27,140 --> 00:03:30,340 [speaker_1]
+Okay. And these are the wrappers. Okay.
+
+00:03:31,960 --> 00:03:35,000 [speaker_0]
+Chat completions, response APIs, these are already there-
+
+00:03:35,060 --> 00:03:36,140 [speaker_1]
+In LiteLLM
+
+00:03:36,150 --> 00:03:37,180 [speaker_0]
+...in LiteLLM. Yeah.
+
+00:03:37,220 --> 00:03:41,900 [speaker_1]
+So we have to build the wrapper only for them.
+
+00:03:42,400 --> 00:03:47,100 [speaker_0]
+Uh, matter... Correct. We should build only the required endpoints.
+
+00:03:47,120 --> 00:03:47,440 [speaker_1]
+Mm-hmm.
+
+00:03:47,520 --> 00:03:53,280 [speaker_0]
+Um, like agent endpoints. This workflow we will not need right now immediately.
+
+00:03:53,290 --> 00:03:53,290 [speaker_1]
+Mm-hmm.
+
+00:03:53,320 --> 00:04:05,020 [speaker_0]
+We can build this little later also. Um, this memoryyy, we are using memzero for memory, right?
+So we can integrate that here.
+
+00:04:05,100 --> 00:04:05,360 [speaker_1]
+Okay.
+
+00:04:05,460 --> 00:04:09,060 [speaker_0]
+Um, we don't need channels and all. Later we can build channels.
+
+00:04:09,120 --> 00:04:11,160 [speaker_1]
+Okay.
+
+00:04:13,140 --> 00:04:24,920 [speaker_0]
+System endpoints, model catalogs are all there. Skills, skills we can use LiteLLM. MCP
+and A2A endpoints. Mm, MCP we have LiteLLM.
+
+00:04:24,960 --> 00:04:25,640 [speaker_1]
+Uh.
+
+00:04:25,700 --> 00:04:36,400 [speaker_0]
+Only A2A endpoints. A2A also, by the way, agents.json, these also from LiteLLM we can add.
+
+00:04:37,060 --> 00:04:37,700 [speaker_1]
+Uh, yeah.
+
+00:04:37,720 --> 00:04:39,120 [speaker_0]
+Get agent card.
+
+00:04:39,140 --> 00:04:40,300 [speaker_1]
+Mm-hmm.
+
+00:04:44,580 --> 00:04:49,260 [speaker_0]
+Um, audit and security endpoints, uh, these we can see later.
+
+00:04:49,320 --> 00:04:49,480 [speaker_1]
+Okay.
+
+00:04:49,500 --> 00:04:52,820 [speaker_0]
+A WebSocket. Yeah, with an agent open in a WebSocket.
+
+00:04:52,880 --> 00:04:53,100 [speaker_1]
+Okay.
+
+00:04:53,120 --> 00:05:06,160 [speaker_0]
+This agent's ID/Websocket. This doesn't, uh, this exists per se. [clears throat] Yeah,
+this might be, this will be needed.
+
+00:05:06,220 --> 00:05:08,260 [speaker_1]
+Websocket protocols.
+
+00:05:08,680 --> 00:05:46,200 [speaker_0]
+Yeah, because we will... Idea is that once we build an agent, we will add it to LiteLLM
+and connect to LiteLLM, but LiteLLM itself is not giving WebSocket connection, I think, to agents.
+
+00:05:46,240 --> 00:05:48,320 [speaker_1]
+Mm-hmm.
+
+00:05:48,400 --> 00:05:56,240 [speaker_0]
+Okay. Okay, no problem. You build this WebSocket. Whether we'll add to LiteLLM or not, we'll see.
+
+00:05:56,300 --> 00:05:56,920 [speaker_1]
+Okay.
+
+00:05:56,960 --> 00:06:19,390 [speaker_0]
+Even if we don't add, we can still use the skills API in these things.Also in your cursor,
+did you get basics right?
+
+00:06:20,490 --> 00:06:22,690 [speaker_1]
+Like, uh, basic rights?
+
+00:06:22,700 --> 00:06:26,710 [speaker_0]
+Plugins. Um, basic, basic things right.
+
+00:06:26,830 --> 00:06:27,190 [speaker_1]
+Uh-
+
+00:06:27,810 --> 00:06:41,730 [speaker_0]
+Like, like for example, deploying stuff like, uh, um, Superpowers, Create Plugin. Uh, sorry,
+Superpowers, Context Seven, these kind of plugins you can install.
+
+00:06:41,790 --> 00:06:43,590 [speaker_1]
+Okay.
+
+00:06:44,470 --> 00:06:47,390 [speaker_0]
+And you can enable to the current project.
+
+00:06:47,450 --> 00:06:49,170 [speaker_1]
+Okay. Okay.
+
+00:06:49,210 --> 00:06:53,200 [speaker_0]
+The moment you enable in the current project and all, you can write code very effectively.
+
+00:06:53,230 --> 00:06:54,290 [speaker_1]
+Okay.
+
+00:06:54,330 --> 00:07:01,330 [speaker_0]
+Context Seven will bring context. Uh, the agent can go quickly make a tool call and get context.
+
+00:07:01,370 --> 00:07:08,910 [speaker_1]
+Okay. [notification sound] So may-- No, can I just see what, uh, plugins that we d-- uh, I can use,
+like couple of-
+
+00:07:08,920 --> 00:07:11,150 [speaker_0]
+Context Seven you can use, Superpowers you can use.
+
+00:07:11,170 --> 00:07:11,520 [speaker_1]
+Context-
+
+00:07:11,530 --> 00:07:16,150 [speaker_0]
+You just have to write, uh, in the plan that use Superpower skills.
+
+00:07:16,210 --> 00:07:16,430 [speaker_1]
+Okay.
+
+00:07:16,530 --> 00:07:17,930 [speaker_0]
+Use Context Seven skills.
+
+00:07:18,010 --> 00:07:18,210 [speaker_1]
+Okay.
+
+00:07:18,310 --> 00:07:24,510 [speaker_0]
+Uh, background you can read on DeepWiki.
+
+00:07:24,690 --> 00:07:26,710 [speaker_1]
+Yeah. DeepWiki is-
+
+00:07:26,770 --> 00:07:28,560 [speaker_0]
+You can even copy these URLs.
+
+00:07:28,730 --> 00:07:29,070 [speaker_1]
+Uh.
+
+00:07:29,110 --> 00:07:36,810 [speaker_0]
+Mm. You can even copy these URLs, go, go to Cursor and add indexing and docs and add that doc here.
+
+00:07:36,890 --> 00:07:37,210 [speaker_1]
+Okay.
+
+00:07:37,230 --> 00:07:46,470 [speaker_0]
+Like... Yeah. So then it'll just scrape all these ninety-four webpages,
+and here you can just do @opencla, then it will use all of this as knowledge.
+
+00:07:47,490 --> 00:07:51,870 [speaker_1]
+Okay. Okay. Like the reference that, uh, like API reference-
+
+00:07:51,890 --> 00:07:51,920 [speaker_0]
+Uh.
+
+00:07:51,920 --> 00:07:58,970 [speaker_1]
+-et cetera. Okay. Okay, okay.
+
+00:08:00,450 --> 00:08:05,750 [speaker_0]
+[machine whirring] Yeah.
+
+00:08:05,970 --> 00:08:09,430 [speaker_1]
+Okay. I'll just go through it and I'll just even
+
+00:08:09,630 --> 00:08:15,470 [speaker_0]
+[machine whirring] You can do it in less, it's nothing more.
+Here the plan will be able to create APIs. If you are doing that, you have time, nothing like it.
+
+00:08:15,570 --> 00:08:21,590 [speaker_1]
+Okay. I'll inform you. Like, just give me a couple of hours. I'll just start implementing it
+and I'll inform you.
+
+00:08:21,890 --> 00:08:22,330 [speaker_0]
+Yeah.
+
+00:08:22,370 --> 00:08:22,910 [speaker_1]
+Okay.
+
+00:08:22,950 --> 00:08:33,310 [speaker_0]
+Okay. [notification sound] [door closing]
